@@ -16,21 +16,33 @@ conn.starttls()
 print('Please enter your Gmail address:')
 userName = input()
 print()
-
 print('Thanks. Now enter your Gmail password:')
 password = input()
 print()
 
+# User composes their email
 print('Who would you like to send your message to?')
 emailTo = input()
 print()
+print('Alright, let\'s compose this email. What\'s the subject?')
+subject = input()
+print()
+print('Got it. What do you want to say to ' + emailTo + '?')
+body = input()
+print()
+print('And what signature would you like to close the email with?')
+signature = input()
+print()
+
+# Displays email for user to approve before sending
+print('Okay, perfect. Here\'s what I have so far:')
 
 # Program logs in to Gmail with user-defined name and password
 conn.login(userName, password)
 
 logging.debug('Attempting to send the email')
 try:
-    conn.sendmail(userName, emailTo, 'Subject: Variable Test\n\nTesting out using variables for conn.login()')
+    conn.sendmail(userName, emailTo, 'Subject: ' + subject + '\n\n' + body +'\n\n' + signature)
     #conn.sendmail('brettandrews3@gmail.com', 'brettandrews@aq2tech.com', 'Subject: Test Program\n\nIs this working?\n\n- Fingers crossed!')
 except:
     print('That email didn\'t send. Try again.')
