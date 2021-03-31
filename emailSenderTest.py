@@ -1,5 +1,5 @@
 #! Python3
-# This program should do 4 things: connect to Gmail's SMTP server; get login info from user;
+# This program should do 4 things: connect to user's selected SMTP server; get login info from user;
 # Send a simple email that user composes; close the connection.
 
 import smtplib, logging
@@ -10,21 +10,32 @@ logging.debug('Start of program')
 
 # Establish email server connection
 print('Welcome to Brett\'s email program! Let\'s send a message.')
-print('First, I need your email provider Please enter one of these: Gmail, Yahoo, Outlook')
+print('First, I need your email provider. Please enter one of these: Gmail, Yahoo, Outlook')
 emailServer = input()
 
-if emailServer == 'Gmail':
-    emailProvider = 'smtp.gmail.com'
+# TODO: Troubleshoot the if and elif statements. Only Gmail works right now.
+#if emailServer == 'Gmail':
+#    emailProvider = 'smtp.gmail.com'
+if emailServer == 'Yahoo!':
+    emailProvider = 'smtp.mail.yahoo.com'
+if emailServer == 'Yahoo':
+    emailProvider = 'smtp.mail.yahoo.com'
+if emailServer == 'Outlook':
+    emailProvider = 'smtp.office365.com' # Found this server name on serversmtp.com
+# TODO: Test other email providers (iCloud, AT&T, Comcast, Verizon)
+else:
+    print('I don\'t know that email provider. Please try again.')
+
 #emailServer = 'smtp.gmail.com'
 conn = smtplib.SMTP(emailProvider, '587')
 conn.ehlo()
 conn.starttls()
 
 # User enters their email and password:
-print('Please enter your Gmail address:')
+print('Please enter your email address:')
 userName = input()
 print()
-print('Thanks. Now enter your Gmail password:')
+print('Thanks. Now enter your email password:')
 password = input()
 print()
 
