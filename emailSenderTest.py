@@ -1,6 +1,6 @@
 #! Python3
-# This program should do 4 things: connect to Gmail's SMTP server; login as me;
-# Send a simple email to my work email; close the connection.
+# This program should do 4 things: connect to Gmail's SMTP server; get login info from user;
+# Send a simple email that user composes; close the connection.
 
 import smtplib, logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -9,7 +9,14 @@ logging.basicConfig(filename='myProgramLog.txt', level=logging.DEBUG, format='%(
 logging.debug('Start of program')
 
 # Establish email server connection
-conn = smtplib.SMTP('smtp.gmail.com', '587')
+print('Welcome to Brett\'s email program! Let\'s send a message.')
+print('First, I need your email provider Please enter one of these: Gmail, Yahoo, Outlook')
+emailServer = input()
+
+if emailServer == 'Gmail':
+    emailProvider = 'smtp.gmail.com'
+#emailServer = 'smtp.gmail.com'
+conn = smtplib.SMTP(emailProvider, '587')
 conn.ehlo()
 conn.starttls()
 
@@ -52,7 +59,6 @@ except:
 else:
     print('88 MILES PER HOUR!!!')
 
-
+# Close the connection and end the program
 conn.close()
-
 logging.debug('End of program')
