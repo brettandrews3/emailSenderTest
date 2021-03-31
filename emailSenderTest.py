@@ -8,6 +8,7 @@ logging.basicConfig(filename='myProgramLog.txt', level=logging.DEBUG, format='%(
 
 logging.debug('Start of program')
 
+# Establish email server connection
 conn = smtplib.SMTP('smtp.gmail.com', '587')
 conn.ehlo()
 conn.starttls()
@@ -36,6 +37,8 @@ print()
 
 # Displays email for user to approve before sending
 print('Okay, perfect. Here\'s what I have so far:')
+print()
+print('To: ' + emailTo + '\nSubject: ' + subject + '\nBody: ' + body + '\nSignature: ' + signature)
 
 # Program logs in to Gmail with user-defined name and password
 conn.login(userName, password)
