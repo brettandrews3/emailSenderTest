@@ -10,12 +10,11 @@ logging.debug('Start of program')
 
 # Establish email server connection
 print('Welcome to Brett\'s email program! Let\'s send a message.')
-print('First, I need your email provider. Please enter one of these: Gmail, Yahoo, Outlook')
-emailServer = input()
+emailServer = input('First, I need your email provider: Gmail, Yahoo, or Outlook?\n')
 
 # TODO: Troubleshoot the if and elif statements. Only Gmail works right now.
-#if emailServer == 'Gmail':
-#    emailProvider = 'smtp.gmail.com'
+if emailServer == 'Gmail':
+    emailProvider = 'smtp.gmail.com'
 if emailServer == 'Yahoo!':
     emailProvider = 'smtp.mail.yahoo.com'
 if emailServer == 'Yahoo':
@@ -32,25 +31,19 @@ conn.ehlo()
 conn.starttls()
 
 # User enters their email and password:
-print('Please enter your email address:')
-userName = input()
+userName = input('Please enter your email address:\n')
 print()
-print('Thanks. Now enter your email password:')
-password = input()
+password = input('Thanks. Now enter your email password:\n')
 print()
 
 # User composes their email
-print('Who would you like to send your message to?')
-emailTo = input()
+emailTo = input('Who would you like to send your message to?\n')
 print()
-print('Alright, let\'s compose this email. What\'s the subject?')
-subject = input()
+subject = input('Alright, let\'s compose this email. What\'s the subject?\n')
 print()
-print('Got it. What do you want to say to ' + emailTo + '?')
-body = input()
+body = input('Got it. What do you want to say to ' + emailTo + '?\n')
 print()
-print('And what signature would you like to close the email with?')
-signature = input()
+signature = input('And what signature would you like to close the email with?\n')
 print()
 
 # Displays email for user to approve before sending
