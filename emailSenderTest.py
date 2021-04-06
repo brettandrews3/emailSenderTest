@@ -15,11 +15,11 @@ emailServer = input('First, I need your email provider: Gmail, Yahoo, or Outlook
 # TODO: Troubleshoot the if and elif statements. Only Gmail works right now.
 if emailServer == 'Gmail':
     emailProvider = 'smtp.gmail.com'
-if emailServer == 'Yahoo!':
+elif emailServer == 'Yahoo!':
     emailProvider = 'smtp.mail.yahoo.com'
-if emailServer == 'Yahoo':
+elif emailServer == 'Yahoo':
     emailProvider = 'smtp.mail.yahoo.com'
-if emailServer == 'Outlook':
+elif emailServer == 'Outlook':
     emailProvider = 'smtp.office365.com' # Found this server name on serversmtp.com
 # TODO: Test other email providers (iCloud, AT&T, Comcast, Verizon)
 else:
