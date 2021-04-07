@@ -69,6 +69,8 @@ except:
 else:
     print('88 MILES PER HOUR!!!')
 
+# TODO: Write a return function that lets user send another email from current address.
+
 # Close the connection and end the program
 conn.close()
 logging.debug('End of program')
