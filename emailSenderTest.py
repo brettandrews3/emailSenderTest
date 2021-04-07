@@ -10,17 +10,23 @@ logging.debug('Start of program')
 
 # Establish email server connection
 print('Welcome to Brett\'s email program! Let\'s send a message.')
-emailServer = input('First, I need your email provider: Gmail, Yahoo, or Outlook?\n')
+emailServer = input('First, I need your email provider: Gmail, Yahoo!, or Outlook?\n')
 
 # TODO: Troubleshoot the if and elif statements. Only Gmail works right now.
+# NOTE: Yahoo port = 465. When I change the port to this and answer Yahoo,
+# the program stalls out and gives smtplib.SMTPConnectError(-1, b...).
+# For now, I'll proceed with just using Gmail and building on that platform.
+
 if emailServer == 'Gmail':
     emailProvider = 'smtp.gmail.com'
+"""
 elif emailServer == 'Yahoo!':
     emailProvider = 'smtp.mail.yahoo.com'
 elif emailServer == 'Yahoo':
     emailProvider = 'smtp.mail.yahoo.com'
 elif emailServer == 'Outlook':
     emailProvider = 'smtp.office365.com' # Found this server name on serversmtp.com
+"""
 # TODO: Test other email providers (iCloud, AT&T, Comcast, Verizon)
 else:
     print('I don\'t know that email provider. Please try again.')
